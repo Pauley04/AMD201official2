@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewData["Title"] = "Welcome";
+}
+
+<section class=" ="landing py-5>
+    <div class="container">
+        <div class="row align-items-center">
+
+            <div class="col-lg-4">
+                <img scr="" class="img-fluid" alt=""/>
+            </div>
+
+            <div class="col-12">
+                <h1 class="display-4">SHORTLY </h1>
+                <p class=" lead">
+                    Get your shorten link now with easy operate.
+                </p>w
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="features" id=" features">
+    <div class="container">
+        <div class="url-shorten-feature">
+            <!-- Update action-->
+            <form class="url-shorten-feature" id="url-shorten-feature"
+            asp-controller="Url" 
+            asp-action="Index">
+                <div>
+                    <input type="text" class="url-input" name ="urlToShorten" placeholder="Shorten your link here !" autocomplete="off"/>
+                    <span class="alert"></span>
+                </div>
+                <button type="submit" class="btn btn-lg" style=""> Get your link !</button>
+            </form>
+            <div class="url-shorten-results"></div>
+        </div>
+    </div>
+
+</section>

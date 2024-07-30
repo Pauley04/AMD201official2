@@ -1,0 +1,6 @@
+@AMD201Redirect_HostAddress = http://localhost:5195
+
+GET {{AMD201Redirect_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

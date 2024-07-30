@@ -1,0 +1,67 @@
+﻿@model IEnumerable<Url>
+@{
+	ViewData["Title"] = "Expand";
+}
+
+<div class="container">
+	<a class="btn btn-outline-success"
+	   asp-action="Expand">
+	   Get original link here  
+	</a>
+</div>
+
+
+<div class="container">
+	<table class="table table-striped">
+		<thead>
+			<tr>
+			   <th scope="col">@Html.DisplayNameFor(model => model.Id) </th>
+				<th scope="col">@Html.DisplayNameFor(model => model.OriginalLink)</th>
+				<th scope="col">@Html.DisplayNameFor(model => model.ShortLink)</th>
+			   <th scope="col">Copy Short Link</th>
+			   <th scope="col">Delete Link</th>
+			</tr>
+		
+		</thead>
+		<tbody>
+			@{
+				foreach (var url in Model)
+				{
+					<tr>
+						<td>@Html.DisplayFor(modelItem => url.Id)</td>
+						<td>@Html.DisplayFor(modelItem => url.OriginalLink)</td>
+						<td>
+							<a href="@url.OriginalLink" class="btn btn-primary">
+								@Html.DisplayFor(modelItem => url.ShortLink)
+							</a>
+							
+						<td>
+							<button onclick="copyLink(@url.Id)" class="btn btn-primary" value="localhost:7260/Url/IDI/@url.ShortLink" id="@url.Id">
+								Copy
+							</button>
+						</td>
+						<td>
+							<a class="btn btn-outline-danger" asp-controller="Url" asp-action="Remove"
+								asp-route-id="@url.Id">
+								Remove
+							</a>
+						</td>
+					</tr>
+				}
+			}
+		</tbody>
+	</table>
+</div>
+
+
+<script type="text/javascript">
+
+	function copyLink(id)
+	{
+		var copyText = document.getElementById(id);
+
+		navigator.clipboard.writeText(copyText.value);
+
+		alert("Copied the link: " + copyText.value);
+	}
+</script>

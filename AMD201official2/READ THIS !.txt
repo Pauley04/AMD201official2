@@ -1,0 +1,7 @@
+HTML of retrieve link page in Views -> Home -> Privacy.cshtml
+
+HTML of All link page in Views -> Url -> Index.cshtml
+
+Configure have been done yo vid 12 of the series 
+
+CSS connect will be add later !

@@ -1,0 +1,11 @@
+﻿@model Url
+@{
+	ViewData["Title"] = "Redirect";
+}
+
+<div class="container">
+    <form asp-action="IDI">
+        <input type="hidden" asp-for="ShortLink" />
+        <input type="submit" value="Redirect" class="btn btn-danger" /> |
+    </form>
+</div>

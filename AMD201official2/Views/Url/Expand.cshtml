@@ -1,0 +1,41 @@
+﻿@model Url
+@{
+    ViewData["Title"] = "Expand URL";
+    var shorturl = ViewData["ShortenedUrl"];
+}
+
+<h1>Expand</h1>
+
+<h4>UrlUnshorten</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Expand">
+            <div class="form-group">
+                <label asp-for="ShortLink" class="control-label">Your Link</label>
+                <input asp-for="ShortLink" class="form-control" />
+                <span asp-validation-for="ShortLink" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input asp-for="ShortLink" class="form-control" value="@shorturl" type="hidden" />
+            </div>
+
+
+            <div class="form-group mt-3">
+                <input type="submit" value="Expand" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="ExpandIndex">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
